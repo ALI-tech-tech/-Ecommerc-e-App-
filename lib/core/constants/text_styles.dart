@@ -32,19 +32,23 @@ abstract final class TextStyles {
   static const TextStyle xLargeBold = TextStyle(
     fontSize: 18,
     fontWeight: FontWeights.bold,
+    color: primaryColor
   );
 
   static const TextStyle largeBold = TextStyle(
     fontSize: 16,
     fontWeight: FontWeights.bold,
+    color: primaryColor
   );
   static const TextStyle largeMedium = TextStyle(
     fontSize: 16,
     fontWeight: FontWeights.medium,
+    color: primaryColor
   );
   static const TextStyle largeRegular = TextStyle(
     fontSize: 16,
     fontWeight: FontWeights.regular,
+    color: primaryColor
   );
 
   static const TextStyle mediumBold = TextStyle(
