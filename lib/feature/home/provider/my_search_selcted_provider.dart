@@ -6,6 +6,7 @@ class QueryNotifier extends StateNotifier<String> {
   void setQuery(String query) {
     state = query;
   }
+  String getQuery()=> state;
 }
 
 final searchQueryProvider = StateNotifierProvider<QueryNotifier, String>((ref) {

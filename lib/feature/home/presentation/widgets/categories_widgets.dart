@@ -15,13 +15,16 @@ class CategoriesWidget extends ConsumerWidget {
         children: List.generate(
           categry.length,
           (index) => InkWell(
-            onTap: () => selectedQueryNotifier.setQuery(categry[index]),
+            onTap: () {
+              String cat=categry[index]=="All"?'':categry[index];
+              return selectedQueryNotifier.setQuery(cat);
+            },
             child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 decoration: BoxDecoration(
-                    color: AppColors.white,
+                    color: AppColors.white ,
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   categry[index],
