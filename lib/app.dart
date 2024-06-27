@@ -12,22 +12,9 @@ class App extends StatelessWidget {
       title: 'Ecommerce App',
       debugShowCheckedModeBanner: false,
       routes: AppRoutes.routes,
-<<<<<<< Updated upstream
-      home:  const HomeView()
-=======
-<<<<<<< Updated upstream
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
-=======
+
       home:   HomeView()
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
     );
   }
 }

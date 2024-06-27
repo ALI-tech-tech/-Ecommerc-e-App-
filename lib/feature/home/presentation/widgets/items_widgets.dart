@@ -12,11 +12,9 @@ class ItemsWidget extends StatelessWidget {
     return GridView.count(
       physics: const NeverScrollableScrollPhysics(),
       childAspectRatio: 1,
-<<<<<<< Updated upstream
-      crossAxisCount: context.width ~/ 280,
-=======
+
       crossAxisCount: context.width ~/ 300,
->>>>>>> Stashed changes
+
       shrinkWrap: true,
       children: List.generate(
           products.length,

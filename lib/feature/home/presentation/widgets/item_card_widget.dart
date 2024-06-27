@@ -31,11 +31,9 @@ class ItemCard extends StatelessWidget {
             child: Text(
               product.title!,
               style: TextStyles.xLargeBold,
-<<<<<<< Updated upstream
-=======
+
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
->>>>>>> Stashed changes
             ),
           ),
           Container(
