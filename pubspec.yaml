@@ -10,8 +10,17 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
+<<<<<<< Updated upstream
   dio: ^5.4.3+1
   riverpod: ^2.5.1
+=======
+<<<<<<< Updated upstream
+=======
+  dio: ^5.4.3+1
+  riverpod: ^2.5.1
+  flutter_riverpod: ^2.5.1
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 dev_dependencies:
   flutter_test:

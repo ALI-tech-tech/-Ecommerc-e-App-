@@ -1,5 +1,8 @@
 
+<<<<<<< Updated upstream
 import 'package:ecommerceapp/feature/home/presentation/views/home_view.dart';
+=======
+>>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'core/core.dart';
 
@@ -12,7 +15,22 @@ class App extends StatelessWidget {
       title: 'Ecommerce App',
       debugShowCheckedModeBanner: false,
       routes: AppRoutes.routes,
+<<<<<<< Updated upstream
       home:  const HomeView()
+=======
+<<<<<<< Updated upstream
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Material App Bar'),
+        ),
+        body: const Center(
+          child: Text('Hello World'),
+        ),
+      ),
+=======
+      home:   HomeView()
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     );
   }
 }

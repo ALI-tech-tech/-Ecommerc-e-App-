@@ -1,11 +1,23 @@
 import 'package:ecommerceapp/core/core.dart';
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+=======
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../provider/provider.dart';
+
+class CustomSearchBar extends ConsumerWidget {
+   const CustomSearchBar({super.key});
+
+  @override
+  Widget build(BuildContext context,WidgetRef ref) {
+>>>>>>> Stashed changes
     return Container(
         margin: const EdgeInsets.symmetric(horizontal: 15),
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -22,6 +34,12 @@ class CustomSearchBar extends StatelessWidget {
                 border: InputBorder.none,
                 hintText: "Search here...",
               ),
+<<<<<<< Updated upstream
+=======
+              onChanged: (value) {
+                ref.read(searchQueryProvider.notifier).state = value;
+              },
+>>>>>>> Stashed changes
             ),
           ),
           const Spacer(),
