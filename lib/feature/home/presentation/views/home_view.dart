@@ -11,7 +11,8 @@ class HomeView extends ConsumerWidget {
     final searchQuery = ref.watch(searchQueryProvider.notifier).state;
     final productsAsyncValue = ref.watch(productsProvider);
 
-    return Scaffold(
+    return 
+    Scaffold(
       body: ListView(
         children: [
           const HomeAppBar(),
@@ -48,20 +49,21 @@ class HomeView extends ConsumerWidget {
                     style: TextStyles.heading2Bold,
                   ),
                 ),
+                
                 productsAsyncValue.when(
                   data: (products) {
-                    // if (searchQuery.isEmpty) {
+                    if (searchQuery.isEmpty) {
                       return ItemsWidget(
                         products: products,
                       );
-                    // } else {
-                    //   return ItemsWidget(
-                    //       products: products
-                    //           .where((product) => product.title!
-                    //               .toLowerCase()
-                    //               .contains(searchQuery.toLowerCase()))
-                    //           .toList());
-                    // }
+                    } else {
+                      return ItemsWidget(
+                          products: products
+                              .where((product) => product.title!
+                                  .toLowerCase()
+                                  .contains(searchQuery.toLowerCase()))
+                              .toList());
+                    }
                   },
                   loading: () => const CircularLoadingWidget(),
                   error: (error, stack) => Center(child: Text('Error: $error')),
@@ -72,5 +74,6 @@ class HomeView extends ConsumerWidget {
         ],
       ),
     );
+ 
   }
 }
