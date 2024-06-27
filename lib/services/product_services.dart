@@ -1,52 +1,24 @@
-import 'package:dio/dio.dart';
-
+import 'dart:convert';
+import 'dart:io';
 import '../feature/home/model/model.dart';
-
+import 'package:http/http.dart' as http;
 
 class ProductService {
-  final Dio _dio = Dio();
-
   Future<List<Product>> fetchProducts() async {
     try {
-      final response = await _dio.get('https://fakestoreapi.com/products');
-      print(response.data);
-      List<Product> products = (response.data as List)
+      final response =
+          await http.get(Uri.parse('https://fakestoreapi.com/products'));
+      List<Product> products = (jsonDecode(response.body) as List)
           .map((product) => Product.fromJson(product))
           .toList();
-          print(products[0].description);
       return products;
     } catch (e) {
+      if (e is HttpException) {
+        print('HttpError: ${e.message}');
+      } else {
+        print('Error: $e');
+      }
       throw Exception('Failed to load products');
     }
   }
 }
-
-
-// class ProductService {
-//   final Dio _dio = Dio();
-
-//   Future<List<Product>> fetchProducts() async {
-//     try {
-//       final response = await _dio.get('https://fakestoreapi.com/products');
-//       print(response.data);
-//       List<Product> products = (response.data as List)
-//           .map((product) => Product.fromJson(product))
-//           .toList();
-//       print(products[0].description);
-//       return products;
-//     } catch (e) {
-//       if (e is DioError) {
-//         // Print detailed error information
-//         print('DioError: ${e.message}');
-//         if (e.response != null) {
-//           print('Response data: ${e.response?.data}');
-//           print('Response headers: ${e.response?.headers}');
-//           print('Response status code: ${e.response?.statusCode}');
-//         }
-//       } else {
-//         print('Error: $e');
-//       }
-//       throw Exception('Failed to load products');
-//     }
-//   }
-// }

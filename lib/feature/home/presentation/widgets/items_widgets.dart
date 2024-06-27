@@ -1,7 +1,5 @@
-import 'package:ecommerceapp/core/core.dart';
 import 'package:ecommerceapp/feature/home/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-
 import '../../model/model.dart';
 
 class ItemsWidget extends StatelessWidget {
@@ -11,10 +9,8 @@ class ItemsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       physics: const NeverScrollableScrollPhysics(),
-      childAspectRatio: 1,
-
-      crossAxisCount: context.width ~/ 300,
-
+      childAspectRatio: 0.60,
+      crossAxisCount: 2,
       shrinkWrap: true,
       children: List.generate(
           products.length,

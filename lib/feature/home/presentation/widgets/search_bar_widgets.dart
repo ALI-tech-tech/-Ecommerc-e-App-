@@ -1,15 +1,15 @@
-import 'package:ecommerceapp/core/core.dart';
+
 import 'package:flutter/material.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import '../../../../core/core.dart';
 import '../../provider/provider.dart';
 
 class CustomSearchBar extends ConsumerWidget {
-   const CustomSearchBar({super.key});
+  const CustomSearchBar({super.key});
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final searchQueryNotifier = ref.read(searchQueryProvider.notifier);
 
     return Container(
         margin: const EdgeInsets.symmetric(horizontal: 15),
@@ -27,11 +27,9 @@ class CustomSearchBar extends ConsumerWidget {
                 border: InputBorder.none,
                 hintText: "Search here...",
               ),
-
               onChanged: (value) {
-                ref.read(searchQueryProvider.notifier).state = value;
+                searchQueryNotifier.setQuery(value);
               },
-
             ),
           ),
           const Spacer(),

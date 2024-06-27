@@ -30,8 +30,7 @@ class ItemCard extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             child: Text(
               product.title!,
-              style: TextStyles.xLargeBold,
-
+              style: TextStyles.largeBold,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
