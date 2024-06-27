@@ -1,6 +1,10 @@
 class Rating {
   double? rate;
+<<<<<<< Updated upstream
   int? count;
+=======
+  double? count;
+>>>>>>> Stashed changes
 
   Rating({this.rate, this.count});
 
