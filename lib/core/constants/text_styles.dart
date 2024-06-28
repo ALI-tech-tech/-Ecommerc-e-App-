@@ -54,6 +54,7 @@ abstract final class TextStyles {
   static const TextStyle mediumBold = TextStyle(
     fontSize: 14,
     fontWeight: FontWeights.bold,
+    color: primaryColor
   );
   static const TextStyle mediumMedium = TextStyle(
     fontSize: 14,

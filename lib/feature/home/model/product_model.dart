@@ -26,7 +26,7 @@ class Product {
     category = json['category'];
     image = json['image'];
     rating =
-        json['rating'] != null ? new Rating.fromJson(json['rating']) : null;
+        json['rating'] != null ? Rating.fromJson(json['rating']) : null;
 
         print(this.toString());
   }
@@ -50,7 +50,7 @@ class Product {
    return ("${this.title},${this.description},${this.price},${this.image},${this.category},${this.image},${this.rating!.rate}${this.rating!.count}");
   }
   toNum(dynamic data){
-    data is int?data.toDouble():data as double; 
+    return data is int?data.toDouble():data as double; 
   }
 }
 

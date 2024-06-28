@@ -8,6 +8,7 @@ class ProductService {
     try {
       final response =
           await http.get(Uri.parse('https://fakestoreapi.com/products'));
+          print(response.body);
       List<Product> products = (jsonDecode(response.body) as List)
           .map((product) => Product.fromJson(product))
           .toList();
