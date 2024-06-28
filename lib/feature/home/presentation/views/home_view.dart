@@ -10,7 +10,7 @@ class HomeView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final searchQuery = ref.watch(searchQueryProvider);
-    final selectedQuery = ref.watch(selectedQueryProvider);
+    var selectedQuery = ref.watch(selectedQueryProvider);
     final productsAsyncValue = ref.watch(productsProvider);
 
     return Scaffold(
@@ -37,7 +37,7 @@ class HomeView extends ConsumerWidget {
                     style: TextStyles.heading2Bold,
                   ),
                 ),
-                const CategoriesWidget(),
+                 CategoriesWidget(),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin:
@@ -49,6 +49,7 @@ class HomeView extends ConsumerWidget {
                 ),
                 productsAsyncValue.when(
                   data: (products) {
+                    selectedQuery= selectedQuery=="All"?'':selectedQuery;
                     List<Product> filteredProducts = products;
                     if (searchQuery.isNotEmpty) {
                       filteredProducts = products

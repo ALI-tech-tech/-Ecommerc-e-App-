@@ -1,8 +1,9 @@
 import '../../feature/home/model/model.dart';
 
 final List<String> categry = [
-  "men's clothing",
+  "All",
   "women's clothing",
+  "men's clothing",
   "electronics",
   "jewelery"
 ];
