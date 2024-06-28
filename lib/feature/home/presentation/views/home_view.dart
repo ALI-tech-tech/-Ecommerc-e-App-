@@ -11,7 +11,7 @@ class HomeView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final searchQuery = ref.watch(searchQueryProvider);
     var selectedQuery = ref.watch(selectedQueryProvider);
-    final productsAsyncValue = ref.watch(productsProvider);
+    final productsAsyncValue = ref.watch(allProductsProvider);
 
     return Scaffold(
       body: ListView(

@@ -1,15 +1,21 @@
 import 'package:ecommerceapp/core/core.dart';
+import 'package:ecommerceapp/feature/home/home.dart';
 import 'package:ecommerceapp/feature/home/model/model.dart';
 import 'package:ecommerceapp/feature/product_detials/presentation/views/product_details_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ItemCard extends StatelessWidget {
+class ItemCard extends ConsumerWidget {
   const ItemCard({super.key, required this.product});
   final Product product;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      onTap: () => context.pushNamed(ProductDetailsView.rout,arguments: product),
+      onTap: () {
+        ref.read(productIdProvider.notifier).state = product.id;
+
+        context.pushNamed(ProductDetailsView.rout);
+      },
       child: Container(
         padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
