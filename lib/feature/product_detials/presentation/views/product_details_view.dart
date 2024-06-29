@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../home/model/model.dart';
 import '../../product_details.dart';
 
 class ProductDetailsView extends ConsumerWidget {
@@ -12,8 +13,8 @@ class ProductDetailsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productAsyncValue = ref.watch(productProvider);
-    // final product = ModalRoute.of(context)!.settings.arguments as Product;
+    final product = ModalRoute.of(context)!.settings.arguments as Product;
+    final productAsyncValue = ref.watch(productProvider(product.id!));
     return Scaffold(
       body: productAsyncValue.when(
         data: (product) => ListView(
