@@ -20,8 +20,8 @@ extension ContextExtension on BuildContext {
     );
   }
 
-  void pushNamed(String routeName) {
-    Navigator.of(this).pushNamed(routeName);
+  void pushNamed(String routeName,{Object? arguments}) {
+    Navigator.of(this).pushNamed(routeName,arguments: arguments);
   }
 
   void pushReplacement(Widget page) {

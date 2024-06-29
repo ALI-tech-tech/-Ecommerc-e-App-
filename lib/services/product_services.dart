@@ -4,13 +4,31 @@ import '../feature/home/model/model.dart';
 import 'package:http/http.dart' as http;
 
 class ProductService {
-  Future<List<Product>> fetchProducts() async {
+  String baseUrl = 'https://fakestoreapi.com/products';
+
+  Future<List<Product>> fetchAllProducts() async {
     try {
-      final response =
-          await http.get(Uri.parse('https://fakestoreapi.com/products'));
+      final response = await http.get(Uri.parse(baseUrl));
+      print(response.body);
       List<Product> products = (jsonDecode(response.body) as List)
           .map((product) => Product.fromJson(product))
           .toList();
+      return products;
+    } catch (e) {
+      if (e is HttpException) {
+        print('HttpError: ${e.message}');
+      } else {
+        print('Error: $e');
+      }
+      throw Exception('Failed to load products');
+    }
+  }
+
+  Future<Product> fetchProduct({required int id}) async {
+    try {
+      final response = await http.get(Uri.parse('$baseUrl/$id'));
+      print(response.body);
+      Product products = Product.fromJson(jsonDecode(response.body));
       return products;
     } catch (e) {
       if (e is HttpException) {

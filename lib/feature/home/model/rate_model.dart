@@ -17,6 +17,6 @@ class Rating {
   }
 
   toNum(dynamic data){
-    data is int?data.toDouble():data as double; 
+    return data is int?data.toDouble():data as double; 
   }
 }
