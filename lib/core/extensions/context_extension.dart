@@ -45,12 +45,12 @@ extension ContextExtension on BuildContext {
     pushReplacement(page);
   }
 
-  void showSnackBar(String message, {Color color = Colors.red}) {
+  void showSnackBar(String message, {Color color = Colors.grey}) {
     ScaffoldMessenger.of(this).removeCurrentSnackBar();
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
         content: Text(message,
-            style: textTheme.bodyMedium!.copyWith(color: Colors.white)),
+            style: textTheme.bodyMedium!.copyWith(color: primaryColor)),
         backgroundColor: color,
       ),
     );
